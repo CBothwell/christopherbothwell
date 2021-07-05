@@ -1,0 +1,21 @@
+<nav x-data="{ open: false }" class="flex p-2 place-content-end">
+  <button @click="open = true" :class="!open ? 'visible' : 'invisible'" class="sm:hidden">
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+    </svg>
+  </button>
+  <div :class="open ? '' : 'hidden'" class="absolute flex flex-row-reverse pr-2 bg-white sm:flex place-content-end sm:bg-none sm:relative">
+    <button @click="open = false" class="w-6 h-6 pl-2 pr-1 ml-5 sm:hidden">
+      <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+    <ul class="flex flex-col bg-white space-y-3 sm:flex-row sm:bg-none sm:mr-4 sm:space-x-10 sm:space-y-0">
+    {% for p in pageCollection -%}
+      <li class='{% if p.url == page.url %}border-b-2 border-blue-600{%endif%}'>
+        <a href="{{ p.url }}" {% if p.url == page.url %}aria-current="page"{%endif%}>{{p.data.menuText}}</a>
+      </li>
+    {% endfor -%}
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,32 @@
+{
+  "devDependencies": {
+    "@11ty/eleventy": "github:11ty/eleventy",
+    "@11ty/eleventy-plugin-syntaxhighlight": "^3.1.1",
+    "autoprefixer": "^10.2.6",
+    "esbuild": "^0.12.9",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.3.5",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.2.4"
+  },
+  "name": "christopherbothwell",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/CBothwell/christopherbothwell.git",
+  "author": "Christopher Bothwell <bothwell.christopher@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "js:dev": "esbuild src/js/index.js --bundle --watch --outfile=_site/js/index.js",
+    "js:build": "esbuild src/js/index.js --bundle --outfile=_site/js/index.js",
+    "css:dev": "postcss --watch src/style.css -o _site/style.css",
+    "css:build": "NODE_ENV=production postcss src/style.css -o _site/style.css",
+    "11ty:dev": "eleventy --input=src/ --serve",
+    "11ty:build": "ELEVENTY_PRODUCTION=true eleventy --input=src/",
+    "dev": "run-p js:dev css:dev 11ty:dev",
+    "build": "NODE_ENV=production run-p js:dev css:dev 11ty:dev"
+  },
+  "dependencies": {
+    "@11ty/eleventy-img": "^0.9.0",
+    "@toycode/markdown-it-class": "^1.2.4"
+  }
+}
