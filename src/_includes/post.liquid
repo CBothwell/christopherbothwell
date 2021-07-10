@@ -7,15 +7,21 @@
   {% render menu, page: page, pageCollection: pageCollection %}
   </header>
   <main class='m-5'>
-    <div class='max-w-2xl p-5 mx-auto mt-10 border border-gray-200 rounded-lg'>
-      <div class='flex items-baseline mb-3 place-content-between'>
+    <div class='max-w-2xl mx-auto'>
+      <a class='mx-auto text-blue-500' href="/posts">&larr; Back to posts</a>
+    </div>
+    <div class='max-w-2xl py-5 mx-auto mt-5 border border-gray-200 rounded-lg'>
+      <div class='flex items-baseline px-5 mb-3 place-content-between'>
         <h1 class='text-2xl'>{{postTitle}}</h1>
         <div>
           <p>Posted: {{page.date | date: '%Y-%m-%d'}}</p>
         </div>
       </div>
-      {% image postImage postImageAlt "(min-width: 30em) 50vw, 100vw" "mx-auto mb-5"%}
+      {% image postImage postImageAlt "(min-width: 30em) 50vw, 100vw" "mx-auto"%}
+      <p class='px-5 mx-auto mb-3 text-xs font-medium'>** {{siteData.affiliateDisclaimer }}</p>
+      <div class='px-5'>
       {{ content }}
+      </div>
     </div>
   </main>
 </body>

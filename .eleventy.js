@@ -6,12 +6,10 @@ const markdownItClass = require('@toycode/markdown-it-class');
 
 async function imageShortcode(src, alt, sizes, imageClassNames) {
   let metadata = await Image(src, {
-    widths: [300, 600],
+    widths: [300, 600, 700],
     formats: ["avif", "jpeg"],
     outputDir: "./_site/img"
   });
-
-  console.log(metadata);
 
   let imageAttributes = {
     alt,
@@ -42,5 +40,4 @@ module.exports = function (eleventyConfig) {
   const md = markdownIt({linkify: true, html: true});
   md.use(markdownItClass, mapping);
   eleventyConfig.setLibrary('md', md);
-  
 };

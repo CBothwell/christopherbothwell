@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 {% render head, title: pageTitle %}
-<body class=''>
-  <header>
+<body>
+  <!-- <canvas id='bg' class='absolute'></canvas> -->
+  <header class='relative'>
   {% assign pageCollection = collections.page | sort: "data.priority" %}
   {% render menu, page: page, pageCollection: pageCollection %}
   </header>
-  <main class='m-5'>
+  <main class='relative m-5'>
     {{ content }}
   </main>
 </body>

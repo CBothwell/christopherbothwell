@@ -7,5 +7,26 @@ tags:
   - page
 ---
 <div>
-  hello posts
+
+  <ol>
+  {% for post in collections.posts %}
+    <li>
+      <a class='block max-w-4xl mx-auto my-4 bg-white border border-gray-200 rounded-lg hover:shadow-lg'
+        href="{{ post.url | url }}">
+        <div class='flex flex-row place-content-between'>
+          <div class='p-3 m-2'>
+            <div class='pb-1'>
+              <span class='text-2xl text-gray-800'>{{post.data.postTitle}}</span>
+              <p class='pt-1 text-sm text-gray-500'>{{ post.date | date: '%Y/%m/%d'}}</p>
+            </div>
+            <p class='mt-5 text-gray-800'>{{post.data.summary}}</p>
+          </div> 
+          <div class='hidden w-64 my-auto max-w-64 max-h-64 sm:block'>
+            {% image post.data.postImage post.data.postImageAlt "(min-width: 30em) 50vw, 100vw" ""%}
+          </div>
+        </div>
+      </a>
+    </li>
+  {% endfor %}
+  </ol>
 </div>

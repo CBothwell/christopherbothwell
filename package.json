@@ -27,6 +27,12 @@
   },
   "dependencies": {
     "@11ty/eleventy-img": "^0.9.0",
-    "@toycode/markdown-it-class": "^1.2.4"
+    "@toycode/markdown-it-class": "^1.2.4",
+    "ammo.js": "https://github.com/kripken/ammo.js",
+    "three": "^0.130.0"
+  },
+  "browser": {
+    "path": false,
+    "fs": false
   }
 }
