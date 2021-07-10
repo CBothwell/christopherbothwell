@@ -23,7 +23,7 @@
     "11ty:dev": "eleventy --input=src/ --serve",
     "11ty:build": "ELEVENTY_PRODUCTION=true eleventy --input=src/",
     "dev": "run-p js:dev css:dev 11ty:dev",
-    "build": "NODE_ENV=production run-p js:dev css:dev 11ty:dev"
+    "build": "NODE_ENV=production run-p js:build css:build 11ty:build"
   },
   "dependencies": {
     "@11ty/eleventy-img": "^0.9.0",
